@@ -6,6 +6,7 @@
     import PakFlag from '$lib/Imgs/lahore.jpg'
     import NewsFlag from '$lib/Imgs/Karachi.png'
     import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
     
     // You can set your data here or fetch it from an API
 
@@ -251,6 +252,7 @@
         </tbody>
     </div>
   </div>
+  <button class="text-white text-lg" on:click={()=>{goto('/results');}}>Next</button>
   </div>
   
   <style>

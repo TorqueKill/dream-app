@@ -8,6 +8,8 @@
     import Amir from '$lib/Imgs/Amir.jpeg'
     import Sharjeel from '$lib/Imgs/Sharjeel.jpeg'
     import Babar from '$lib/Imgs/Babar.jpeg'
+    import { globalSelectedPlayers } from '$lib/store.js'
+    import { goto } from '$app/navigation';
 
     let selectedPlayers = writable([]);
 
@@ -41,9 +43,23 @@
 
     // Whenever selected players change, update the used budget
     selectedPlayers.subscribe($selectedPlayers => {
-    let budgetUsed = $selectedPlayers.reduce((acc, player) => acc + player.points, 0);
-    usedBudget.set(budgetUsed);
+        let budgetUsed = $selectedPlayers.reduce((acc, player) => acc + player.points, 0);
+        usedBudget.set(budgetUsed);
     });
+
+    function next() {
+        let currentSelectedPlayers = [];
+
+        const unsubscribe = selectedPlayers.subscribe(value => {
+            currentSelectedPlayers = value;
+        });
+        unsubscribe(); // Immediately unsubscribe after getting the value
+
+        // Now you can use currentSelectedPlayers as a regular array
+        $globalSelectedPlayers = currentSelectedPlayers;
+
+        goto('/Scoreboard')
+    }
 
 </script>
 
@@ -104,7 +120,7 @@
 
 
 <div class="button-container">
-    <button class="next-button"><a href="/Scoreboard">Next</a></button>
+    <button class="next-button" on:click={next}>Next</button>
 </div>
 
 
