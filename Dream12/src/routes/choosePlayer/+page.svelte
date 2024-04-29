@@ -34,6 +34,7 @@
             }
             return current; // Return current state if no changes
         });
+        $globalSelectedPlayers = selectedPlayers
     }
 
     let totalBudget = 400;

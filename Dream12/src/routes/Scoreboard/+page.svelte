@@ -252,7 +252,8 @@
         </tbody>
     </div>
   </div>
-  <button class="text-white text-lg" on:click={()=>{goto('/results');}}>Next</button>
+
+    <button class="text-white text-lg"><a href="/results">Next</a></button>
   </div>
   
   <style>
