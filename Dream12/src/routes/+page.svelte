@@ -9,12 +9,12 @@
 
 
 
-<div class="main w-full">
+<div class="main w-full {red1}">
     <div class="header {red1} text-white text-5xl text-center font-bold py-5">
         DreamTeam
     </div>
 
-    <div class="headerDrawer text-white">
+    <div class="headerDrawer text-white rounded-tl-3xl rounded-tr-3xl">
         <nav class="navbar bg-stone-100">
             <ul class="nav-menu">
                 <li class="nav-item selected"><a href="#cricket"><i class="material-icons">sports_cricket</i>Cricket</a></li>
@@ -126,7 +126,7 @@
 .headerDrawer {
     width: 100%;
     overflow: hidden;
-    border-bottom: black 2px solid;
+    border-bottom: black 1px solid;
 }
 
 .navbar {
