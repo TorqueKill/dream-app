@@ -1,21 +1,21 @@
 <script>
-    let gray1 = "bg-gray-900"
-    let gray2 = "bg-gray-800"
-    let white = "bg-white"
-    let gray3 = "bg-gray-400"
-    let gray4 = "bg-gray-700"
+    let red1 = "bg-red-600"
+    let red2 = "bg-red-500"
+    let stone = "bg-stone-200"
+    let stone2 = "bg-slate-500"
+    let stone3 = "bg-slate-900"
 
 </script>
 
 
 
 <div class="main w-full">
-    <div class="header {gray3} text-stone-300 text-5xl text-center font-bold py-5">
+    <div class="header {red1} text-stone-300 text-5xl text-center font-bold py-5">
         DreamTeam
     </div>
 
     <div class="headerDrawer bg-gray-800 text-white">
-        <nav class="navbar {gray4}">
+        <nav class="navbar {stone}">
             <ul class="nav-menu">
                 <li class="nav-item selected"><a href="#cricket"><i class="material-icons">sports_cricket</i>Cricket</a></li>
                 <li class="nav-item disabled"><a href="#football"><i class="material-icons">sports_soccer</i>Football</a></li>
@@ -28,33 +28,33 @@
 
     <div class="body rounded-md w-full h-full flex flex-col items-center p-0 ">
         <!-- My Match Section -->
-        <div class="myMatch {gray1} w-full p-5">
+        <div class="myMatch {stone} w-full p-5">
             <h2 class="section-title">My Matches</h2>
             <a href="/choosePlayer">
                 <div class="matchCard my-5 border-black border-2 rounded">
-                    <div class="{gray2} w-full font-bold text-stone-300">PSL</div>
+                    <div class="{stone3} w-full font-bold text-stone-300">PSL</div>
                     <div class="teams flex space-x-2">
                         <div class="team left text-center text-lg ">Lahore Qalandars</div>
                         <div class="team right text-center text-lg">Karachi Kings</div>
                     </div>
                     <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
-                    <div class="prize {gray2} p-2 mt-2 text-center text-sm text-stone-300">PKR 5000</div>
+                    <div class="prize {stone3} p-2 mt-2 text-center text-sm text-stone-300">PKR 5000</div>
                 </div>  
             </a>
                       
         </div>
 
         <!-- Upcoming Matches Section -->
-        <div class="upcomingMatches {gray1} w-full p-5 text-white">
-            <h2 class="section-title ">Upcoming Matches</h2>
-            <div class="matchCard p-10 my-5 border-black border-2 rounded {gray2}">
-                Upcoming Match 1
+        <div class="upcomingMatches {stone} w-full p-5">
+            <h2 class="section-title">Upcoming Matches</h2>
+            <div class="matchCard p-10 my-5 border-black border-2 rounded">
+                Upcoming Match Card 1
             </div>
-            <div class="matchCard p-10 my-5 border-black border-2 rounded {gray2}">
-                Upcoming Match 2
+            <div class="matchCard p-10 my-5 border-black border-2 rounded">
+                Upcoming Match Card 2
             </div>
-            <div class="matchCard p-10 my-5 border-black border-2 rounded {gray2}">
-                Upcoming Match 3
+            <div class="matchCard p-10 my-5 border-black border-2 rounded">
+                Upcoming Match Card 3
             </div>
         </div>
     </div>
