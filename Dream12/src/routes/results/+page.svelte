@@ -1,20 +1,44 @@
 <script>
     import { globalSelectedPlayers } from '$lib/store.js'
+    import { onMount } from 'svelte';
 
-    let gray1 = "bg-gray-900"
-    let gray2 = "bg-gray-800"
-    let white = "bg-white"
+    let gray1 = "bg-white"
+    let gray2 = "bg-red-700"
+    let white = "bg-gray-200"
     let gray3 = "bg-gray-400"
-    let gray4 = "bg-gray-700"
+    let gray4 = "bg-gray-200"
 
     let totalPool = 1400;
+    let totalPoints = 0;
+    let reward = 0;
 
     let playerNames = [];
-    //let playerNames = ["Fakhar Zaman", "Shaheen Shah Afridi", "Muhammad Hafeez", "Cris Lynn"]
     let selectedPlayers = $globalSelectedPlayers;
-    selectedPlayers.forEach(player => {
-       playerNames.push(player.name)
-    });
+
+    onMount(() => {
+        selectedPlayers.forEach(player => {
+            playerNames.push(player.name)
+        });
+        playerNames = playerNames;
+
+        totalPoints = playerPoints.reduce((acc, player) => {
+        if (playerNames.includes(player.name)) {
+            console.log(acc + player.runs + (player.boundaries * 4) + (player.sixes * 6) + (player.wickets * 10))
+            return acc + player.runs + (player.boundaries * 4) + (player.sixes * 6) + (player.wickets * 10);
+        } else {
+            return acc;
+        }
+    }, 0);
+
+    console.log(totalPoints)
+
+    reward = (totalPoints/200) * totalPool;
+
+    console.log(reward)
+    })
+    
+
+    console.log(playerNames)
 
     let playerPoints = [
         { name: "Fakhar Zaman", runs: 45, boundaries: 5, sixes: 2, wickets: 1 },
@@ -27,28 +51,22 @@
         { name: "Babar Azam", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
     ];
 
-    let totalPoints = playerPoints.reduce((acc, player) => {
-        if (playerNames.includes(player.name)) {
-            return acc + player.runs + (player.boundaries * 4) + (player.sixes * 6) + (player.wickets * 10);
-        } else {
-            return 0;
-        }
-    }, 0);  // Initial accumulator value is 0
+      // Initial accumulator value is 0
 
-    let reward = (totalPoints/200) * totalPool;
+    
 
 </script>
 
-<div class="body {gray1}">
+<div class="body {gray2}">
     <div class="header flex flex-col items-center text-white py-4">
         <p class="text-3xl">Reward: PKR {reward}</p>
         <p class="text-2xl">Points: {totalPoints}</p>
     </div>
     
     
-    <div class="player-cards-container {gray2} text-white rounded-3xl py-2">
+    <div class="player-cards-container {gray1} text-black rounded-tl-3xl rounded-tr-3xl py-2">
         {#each playerPoints as player}
-            <div class="player-card {gray4} rounded-md" class:selected={playerNames.includes(player.name)}>
+            <div class="player-card {gray4} rounded-2xl" class:selected={playerNames.includes(player.name)}>
                 <p class="font-bold">{player.name}</p>
                 <p>Runs: {player.runs}</p>
                 <p>Boundaries: {player.boundaries}</p>
@@ -77,5 +95,6 @@
     }
 
     .player-card.selected {
-    border: white dotted 1px;}
+    border: red dotted 2px;
+    }
 </style>

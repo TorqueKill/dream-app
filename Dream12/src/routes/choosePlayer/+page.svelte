@@ -64,72 +64,81 @@
 
 </script>
 
-<div class="header bg-red-700 text-white text-3xl text-center font-bold py-5">
-    Create Team
-</div>
-
-<div class="progress-container">
-    <div class="progress-bar" style="width: {($selectedPlayers.length * 100) / 4}%;"></div>
-</div>
-
-<!--Budget Div-->
-<div class="budget-container flex justify-center items-center text-2xl mx-4 my-4 outline">
-    <h2>
-      <!-- Show remaining budget on update-->
-        {totalBudget - $usedBudget}
-    </h2>
-</div>
-
-
-<div class="teams-container">
-    <div class="team">
-        <h2>Lahore Qalandars</h2>
-        {#each players.filter(p => p.team === 'Team A') as player (player.name)}
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <!-- svelte-ignore a11y-no-static-element-interactions -->
-            <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
-                <div class="flex flex-col items-center">
-                    <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
-                    <div class="player-info">
-                        <h3>{player.name}</h3>
-                        <p>{player.points}</p>
+<div class="flex flex-col bg-red-700">
+    <div class="header text-white text-3xl text-center font-bold py-5">
+        Create Team
+    </div>
+    
+    <div class=" bg-white rounded-tl-3xl rounded-tr-3xl m-0">
+    
+        <div class="progress-container rounded-3xl">
+            <div class="progress-bar  rounded-3xl" style="width: {($selectedPlayers.length * 100) / 4}%;"></div>
+        </div>
+        
+        <!--Budget Div-->
+        <div class="budget-container flex justify-center items-center text-2xl mx-4 my-4">
+            <h2 class="font-bold">
+              <!-- Show remaining budget on update-->
+                Credits: {totalBudget - $usedBudget}
+            </h2>
+        </div>
+        
+        
+        <div class="teams-container">
+            <div class="team">
+                <p class="font-bold pb-2">Lahore Qalandars</p>
+                {#each players.filter(p => p.team === 'Team A') as player (player.name)}
+                <div class="player-card w-32 h-32 border {$selectedPlayers.some(p => p.name === player.name) ? 'border-red-700 border-2' : 'border-gray-300'}" on:click={() => togglePlayerSelection(player)}>
+                    <div class="flex h-full">
+                        <div class="w-1/3 h-full">
+                            <img src={player.image} alt={`Image of ${player.name}`} class="w-full h-full object-cover rounded-tl-lg rounded-bl-lg"/>
+                        </div>
+                        <div class="w-2/3 h-full flex flex-col justify-center items-start p-2">
+                            <h3 class="text-lg font-semibold">{player.name}</h3>
+                            <p class="text-sm">{player.points}</p>
+                        </div>
                     </div>
                 </div>
+            {/each}
+        
             </div>
-        {/each}
-    </div>
-    <div class="team">
-        <h2>Karachi Kings</h2>
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        {#each players.filter(p => p.team === 'Team B') as player (player.name)}
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <!-- svelte-ignore a11y-no-static-element-interactions -->
-            <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
-                <div class="flex flex-col items-center">
-                    <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
-                    <div class="player-info">
-                        <h3>{player.name}</h3>
-                        <p>{player.points}</p>
+            <div class="team">
+                <h2 class="font-bold pb-2">Karachi Kings</h2>
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                {#each players.filter(p => p.team === 'Team B') as player (player.name)}
+                <div class="player-card w-32 h-32 border {$selectedPlayers.some(p => p.name === player.name) ? 'border-red-700 border-2' : 'border-gray-300'}" on:click={() => togglePlayerSelection(player)}>
+                    <div class="flex h-full">
+                        <div class="w-1/3 h-full">
+                            <img src={player.image} alt={`Image of ${player.name}`} class="w-full h-full object-cover rounded-tl-lg rounded-bl-lg"/>
+                        </div>
+                        <div class="w-2/3 h-full flex flex-col justify-center items-start p-2">
+                            <h3 class="text-lg font-semibold">{player.name}</h3>
+                            <p class="text-sm">{player.points}</p>
+                        </div>
                     </div>
                 </div>
+            {/each}
             </div>
-        {/each}
+        </div>
+        
+        
+        
+        
+        <div class="button-container ">
+            <button class="next-button bg-red-700 text-white" on:click={next}>Next</button>
+        </div>
     </div>
+    
 </div>
 
 
-
-
-<div class="button-container">
-    <button class="next-button" on:click={next}>Next</button>
-</div>
 
 
 <style>
 .teams-container {
     display: flex;
-    justify-content: space-around;
     width: 100%;
+    justify-content: center;
 }
 
 .team {
@@ -139,20 +148,6 @@
     width: 50%; /* Each team takes up half the width */
 }
 
-
-.player-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.player-info h3, .player-info p {
-    margin: 5px;
-    text-align: center;
-}
-
 .progress-container {
     background-color: #eee;
     margin: 10px;
@@ -160,10 +155,10 @@
 
 .progress-bar {
     height: 100%;
-    background-color: green; /* Green */
+    background-color: #5cb85c; /* Green */
     transition: width 0.4s ease;
     padding: 10px;
-    border: black solid 2px;
+    border: gray solid 2px;
 }
 
 .button-container {
@@ -176,15 +171,9 @@
 
 .next-button {
     width: 100px;
-    border: black solid 2px;
     border-radius: 10px;
     padding: 10px;
     margin: auto;
-}
-
-.teams-container {
-    display: flex;
-    justify-content: space-between;
 }
 
 .team {
@@ -194,34 +183,15 @@
     width: 48%; /* Adjusted for a slight gap between columns */
 }
 
-.player-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.player-info h3, .player-info p {
-    margin: 5px;
-    text-align: center;
-}
-
 .player-card {
     cursor: pointer;
-    margin: 10px;
-    padding: 20px;
+    margin: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     background: white;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
+    height: 100px;
     transition: background-color 0.3s ease;
 }
-
-.player-card.selected {
-    background-color: #4CAF50; /* Green background for selected players */
-    color: white;
-}
-
 
 </style>

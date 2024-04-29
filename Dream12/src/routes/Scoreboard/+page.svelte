@@ -15,6 +15,12 @@
     let white = "bg-white"
     let gray3 = "bg-gray-400"
     let gray4 = "bg-gray-700"
+
+    let red1 = "bg-red-600"
+    let red2 = "bg-red-500"
+    let stone = "bg-stone-200"
+    let stone2 = "bg-slate-500"
+    let stone3 = "bg-slate-900"
     
     // You can set your data here or fetch it from an API
 
@@ -172,8 +178,8 @@
 
   </script>
   <!-- outer container, nests scoreboard -->
-  <div class="min-h-screen w-full bg-gray-900 py-8 px-8">
-  <div class="bg-gray-800 text-white p-4 min-h-screen">
+  <div class="min-h-screen w-full bg-gray-200 py-8 px-8">
+  <div class="bg-white p-4 min-h-screen text-black rounded">
     <div class="flex justify-between items-center mb-4 text-lg">
       <div>
         <div class="flex items-center">
@@ -197,12 +203,12 @@
       <!--buttons for switching team players-->
       <div class="flex justify-center gap-4 mb-6">
         <button
-            class={`px-4 py-2 rounded transition-colors ${currentTeam === 'Lahore Qalandars' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-gray-400'}`}
+            class={`px-4 py-2 rounded transition-colors ${currentTeam === 'Lahore Qalandars' ? 'bg-red-700 text-white' : 'bg-gray-800 text-gray-400'}`}
             on:click={() => switchTeam('Lahore Qalandars')}>
             Lahore Qalandars
         </button>
         <button
-            class={`px-4 py-2 rounded transition-colors ${currentTeam === 'Karachi Kings' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-gray-400'}`}
+            class={`px-4 py-2 rounded transition-colors ${currentTeam === 'Karachi Kings' ? 'bg-red-700 text-white' : 'bg-gray-800 text-gray-400'}`}
             on:click={() => switchTeam('Karachi Kings')}>
             Karachi Kings
         </button>
@@ -259,8 +265,8 @@
           {/each}
         </tbody>
     </div>
-    <div class="flex justify-center my-10 outline-double">
-      <button class="text-white text-lg"><a href="/results">Next</a></button>
+    <div class="next-button flex justify-center my-5 outline-double p-2 rounded" on:click={()=>{goto('/results')}}>
+      <button class=" text-lg">Next</button>
     </div>
   </div>
 
@@ -278,5 +284,10 @@
     td:first-child {
       text-align: left;
     }
+
+    .next-button:hover {
+      cursor: pointer;
+    }
+
   </style>
   

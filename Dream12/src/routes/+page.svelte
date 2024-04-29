@@ -1,21 +1,21 @@
 <script>
-    let red1 = "bg-red-600"
+    import { goto } from '$app/navigation';
+    let red1 = "bg-red-700"
     let red2 = "bg-red-500"
     let stone = "bg-stone-200"
     let stone2 = "bg-slate-500"
     let stone3 = "bg-slate-900"
-
 </script>
 
 
 
 <div class="main w-full">
-    <div class="header {red1} text-stone-300 text-5xl text-center font-bold py-5">
+    <div class="header {red1} text-white text-5xl text-center font-bold py-5">
         DreamTeam
     </div>
 
-    <div class="headerDrawer bg-gray-800 text-white">
-        <nav class="navbar {stone}">
+    <div class="headerDrawer text-white">
+        <nav class="navbar bg-stone-100">
             <ul class="nav-menu">
                 <li class="nav-item selected"><a href="#cricket"><i class="material-icons">sports_cricket</i>Cricket</a></li>
                 <li class="nav-item disabled"><a href="#football"><i class="material-icons">sports_soccer</i>Football</a></li>
@@ -28,34 +28,62 @@
 
     <div class="body rounded-md w-full h-full flex flex-col items-center p-0 ">
         <!-- My Match Section -->
-        <div class="myMatch {stone} w-full p-5">
-            <h2 class="section-title">My Matches</h2>
-            <a href="/choosePlayer">
-                <div class="matchCard my-5 border-black border-2 rounded">
-                    <div class="{stone3} w-full font-bold text-stone-300">PSL</div>
-                    <div class="teams flex space-x-2">
-                        <div class="team left text-center text-lg ">Lahore Qalandars</div>
-                        <div class="team right text-center text-lg">Karachi Kings</div>
+        <div class="myMatch bg-white w-full p-5">
+            <h2 class="section-title text-xl font-bold">My Matches</h2>
+            <div class="goto-box" on:click={()=>{goto('/choosePlayer')}}>
+                <div class="matchCard border-black border-2 rounded">
+                    <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
+                    <div class="teams flex">
+                        <div class="team left text-center text-lg font-bold">Lahore Qalandars</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="team right text-center text-lg font-bold">Karachi Kings</div>
+                        
                     </div>
-                    <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
-                    <div class="prize {stone3} p-2 mt-2 text-center text-sm text-stone-300">PKR 5000</div>
+                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
+                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
                 </div>  
-            </a>
+            </div>
                       
         </div>
 
         <!-- Upcoming Matches Section -->
-        <div class="upcomingMatches {stone} w-full p-5">
-            <h2 class="section-title">Upcoming Matches</h2>
-            <div class="matchCard p-10 my-5 border-black border-2 rounded">
-                Upcoming Match Card 1
-            </div>
-            <div class="matchCard p-10 my-5 border-black border-2 rounded">
-                Upcoming Match Card 2
-            </div>
-            <div class="matchCard p-10 my-5 border-black border-2 rounded">
-                Upcoming Match Card 3
-            </div>
+        <div class="upcomingMatches bg-white w-full p-5">
+            <h2 class="section-title text-xl font-bold">Upcoming Matches</h2>
+                <div class="matchCard border-black border-2 rounded opacity-50">
+                    <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
+                    <div class="teams flex">
+                        <div class="team left text-center text-lg font-bold">Islamabad United</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="team right text-center text-lg font-bold">Multan Sultans</div>
+                        
+                    </div>
+                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
+                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
+                </div>  
+                <div class="matchCard border-black border-2 rounded opacity-50">
+                    <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
+                    <div class="teams flex">
+                        <div class="team left text-center text-lg font-bold">Lahore Qalandars</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="team right text-center text-lg font-bold">Peshawar Zalmi</div>
+                        
+                    </div>
+                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
+                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
+                </div>  
+                <div class="matchCard border-black border-2 rounded opacity-50">
+                    <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
+                    <div class="teams flex">
+                        <div class="team left text-center text-lg font-bold">Quetta Gladiators</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="team right text-center text-lg font-bold">Karachi Kings</div>
+                        
+                    </div>
+                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
+                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
+                </div>  
+
+
         </div>
     </div>
 </div>
@@ -69,13 +97,15 @@
 
 .myMatch, .upcomingMatches {
     width: 100%;
-    margin: 0 auto; /* Centers the sections */
 }
 
 .section-title {
     text-align: left; /* Aligns titles to the left */
     margin-left: 5%; /* Provides a little left margin for aesthetics */
-    font-size: 2em; /* Increases the font size for visibility */
+}
+
+.goto-box:hover {
+    cursor: pointer;
 }
 
 /* Match card styling to make them stand out */
@@ -91,13 +121,10 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for better visibility */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .headerDrawer {
     width: 100%;
-    background-color: #ffffff;
     overflow: hidden;
     border-bottom: black 2px solid;
 }
@@ -142,7 +169,6 @@
     align-items: center;
     gap: 10px; /* Space between icon and text */
     text-decoration: none; /* Removes underline from links */
-    color: white; /* Sets link color */
     font-size: 16px; /* Sets size of the font */
     font-weight: bold; /* Makes font bold */
 }
@@ -158,7 +184,6 @@
     align-items: center;
     gap: 5px; /* Space between icon and text */
     text-decoration: none;
-    color: white;
     font-size: 16px;
     font-weight: bold;
 }
