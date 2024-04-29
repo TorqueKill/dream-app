@@ -1,23 +1,24 @@
 <script>
     import { globalSelectedPlayers } from '$lib/store.js'
 
-    let playerNames = [];
+    let totalPool = 1400;
+
+    //let playerNames = [];
+    let playerNames = ["Fakhar Zaman", "Shaheen Shah Afridi", "Muhammad Hafeez", "Cris Lynn"]
     let selectedPlayers = $globalSelectedPlayers;
     selectedPlayers.forEach(player => {
-        playerNames.push(player.name)
+       playerNames.push(player.name)
     });
 
-    console.log(playerNames)
-
     let playerPoints = [
-    { name:  "Fakhar Zaman", runs: 45, boundaries: 5, sixes: 2, wickets: 1 },
-    { name: "Shaheen Shah Afridi", runs: 60, boundaries: 7, sixes: 4, wickets: 3 },
-    { name: "Muhammad Hafeez", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
-    { name: "Cris Lynn", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
-    { name: "Imad Wasim", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
-    { name: "Muhammad Amir", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
-    { name: "Sharjeel Khan", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
-    { name: "Babar Azam", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
+        { name: "Fakhar Zaman", runs: 45, boundaries: 5, sixes: 2, wickets: 1 },
+        { name: "Shaheen Shah Afridi", runs: 60, boundaries: 7, sixes: 4, wickets: 3 },
+        { name: "Muhammad Hafeez", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
+        { name: "Cris Lynn", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
+        { name: "Imad Wasim", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
+        { name: "Muhammad Amir", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
+        { name: "Sharjeel Khan", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
+        { name: "Babar Azam", runs: 25, boundaries: 3, sixes: 1, wickets: 0 },
     ];
 
     let totalPoints = playerPoints.reduce((acc, player) => {
@@ -28,15 +29,17 @@
         }
     }, 0);  // Initial accumulator value is 0
 
-    let reward = 0;
-
+    let reward = (totalPoints/200) * totalPool;
 
 </script>
 
-<h1>Total Points: {totalPoints}</h1>
-<h1>Your Reward: {reward}</h1>
 
-<h2>Point Calculations</h2>
+<div class="header flex flex-col items-center">
+    <p class="text-3xl">Reward: PKR {reward}</p>
+    <p class="text-2xl">Points: {totalPoints}</p>
+</div>
+
+<hr>
 
 <div class="player-cards-container">
     {#each playerPoints as player}
