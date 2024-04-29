@@ -1,9 +1,10 @@
 <script>
     import { writable } from 'svelte/store';
+    import test from '$lib/Imgs/test.png'
     let selectedPlayers = writable([]);
 
     let players = [
-        { name: "Fakhar Zaman", points: 100, team: "Team A", image: "path/to/image1.jpg" },
+        { name: "Fakhar Zaman", points: 100, team: "Team A", image: test },
         { name: "Shaheen Shah Afridi", points: 100, team: "Team A", image: "path/to/image2.jpg" },
         { name: "Muhammad Hafeez", points: 100, team: "Team A", image: "path/to/image3.jpg" },
         { name: "Cris Lynn", points: 100, team: "Team A", image: "path/to/image4.jpg" },
@@ -32,26 +33,42 @@
 </div>
 
 <div class="progress-container">
-    <div class="progress-bar" style="width: {(selectedPlayers.length * 100)/4}%;"></div>
+    <div class="progress-bar" style="width: {($selectedPlayers.length * 100) / 4}%;"></div>
 </div>
 
 
 <div class="teams-container">
-    {#each players as player (player.name)}
-        <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
-            <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
-            <div class="player-info">
-                <h3>{player.name}</h3>
-                <p>{player.points}</p>
+    <div class="team">
+        <h2>Team A</h2>
+        {#each players.filter(p => p.team === 'Team A') as player (player.name)}
+            <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
+                <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
+                <div class="player-info">
+                    <h3>{player.name}</h3>
+                    <p>{player.points}</p>
+                </div>
             </div>
-        </div>
-    {/each}
+        {/each}
+    </div>
+    <div class="team">
+        <h2>Team B</h2>
+        {#each players.filter(p => p.team === 'Team B') as player (player.name)}
+            <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
+                <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
+                <div class="player-info">
+                    <h3>{player.name}</h3>
+                    <p>{player.points}</p>
+                </div>
+            </div>
+        {/each}
+    </div>
 </div>
 
 
 
+
 <div class="button-container">
-    <button class="next-button">Next</button>
+    <button class="next-button"><a href="/Scoreboard">Next</a></button>
 </div>
 
 
