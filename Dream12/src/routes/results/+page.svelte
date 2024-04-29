@@ -38,7 +38,8 @@
 
 <h2>Point Calculations</h2>
 
-<div class="player-cards-container">
+<!--Grid, center-->
+<div class="grid grid-cols-2 gap-4">
     {#each playerPoints as player}
         <div class="player-card" class:selected={playerNames.includes(player.name)}>
             <h3>{player.name}</h3>
@@ -53,11 +54,6 @@
 
 
 <style>
-    .player-cards-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     .player-card {
         border: 1px solid #ccc;
         padding: 10px;
