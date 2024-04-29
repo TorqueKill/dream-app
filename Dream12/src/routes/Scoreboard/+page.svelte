@@ -2,10 +2,18 @@
 <script>
   //red-700
   //black n white
+
+
  
     import PakFlag from '$lib/Imgs/lahore.jpg'
     import NewsFlag from '$lib/Imgs/Karachi.png'
     import { onMount } from 'svelte';
+
+    let red1 = "bg-red-600"
+    let red2 = "bg-red-500"
+    let stone = "bg-stone-300"
+    let stone2 = "bg-slate-500"
+    let stone3 = "bg-slate-900"
     
     // You can set your data here or fetch it from an API
 
@@ -163,7 +171,7 @@
 
   </script>
   <!-- outer container, nests scoreboard -->
-  <div class="min-h-screen w-full bg-gray-900 py-8 px-8">
+  <div class="min-h-screen w-full {stone3} py-8 px-8">
   <div class="bg-gray-800 text-white p-4 min-h-screen">
     <div class="flex justify-between items-center mb-4 text-lg">
       <div>
