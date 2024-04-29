@@ -144,8 +144,8 @@
           overs: '5'
         }
       },
-      result: 'PAK won by 9 runs',
-      seriesStatus: 'T20 5 of 5 (Tied 2-2)'
+      result: 'LHR won by 5 runs',
+      seriesStatus: 'PSL 5 of 5 (Tied 2-2)'
     };
   
     let currentTeam = 'Lahore Qalandars';
