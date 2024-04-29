@@ -1,17 +1,25 @@
 <script>
     import { writable } from 'svelte/store';
-    import test from '$lib/Imgs/test.png'
+    import Fakhar from '$lib/Imgs/Fakhar.png'
+    import Shaheen from '$lib/Imgs/Shaheen.jpeg'
+    import Hafeez from '$lib/Imgs/Hafeez.jpeg'
+    import Lynn from '$lib/Imgs/Cris.jpeg'
+    import Imad from '$lib/Imgs/Imad.jpeg'
+    import Amir from '$lib/Imgs/Amir.jpeg'
+    import Sharjeel from '$lib/Imgs/Sharjeel.jpeg'
+    import Babar from '$lib/Imgs/Babar.jpeg'
+
     let selectedPlayers = writable([]);
 
     let players = [
-        { name: "Fakhar Zaman", points: 100, team: "Team A", image: test },
-        { name: "Shaheen Shah Afridi", points: 100, team: "Team A", image: "path/to/image2.jpg" },
-        { name: "Muhammad Hafeez", points: 100, team: "Team A", image: "path/to/image3.jpg" },
-        { name: "Cris Lynn", points: 100, team: "Team A", image: "path/to/image4.jpg" },
-        { name: "Imad Wasim", points: 100, team: "Team B", image: "path/to/image5.jpg" },
-        { name: "Muhammad Amir", points: 100, team: "Team B", image: "path/to/image6.jpg" },
-        { name: "Sharjeel Khan", points: 100, team: "Team B", image: "path/to/image7.jpg" },
-        { name: "Babar Azam", points: 100, team: "Team B", image: "path/to/image8.jpg" },
+        { name: "Fakhar Zaman", points: 100, team: "Team A", image: Fakhar },
+        { name: "Shaheen Shah Afridi", points: 100, team: "Team A", image: Shaheen },
+        { name: "Muhammad Hafeez", points: 100, team: "Team A", image: Hafeez },
+        { name: "Cris Lynn", points: 100, team: "Team A", image: Lynn },
+        { name: "Imad Wasim", points: 100, team: "Team B", image: Imad },
+        { name: "Muhammad Amir", points: 100, team: "Team B", image: Amir },
+        { name: "Sharjeel Khan", points: 100, team: "Team B", image: Sharjeel },
+        { name: "Babar Azam", points: 100, team: "Team B", image: Babar },
     ];
 
     function togglePlayerSelection(player) {
@@ -26,6 +34,17 @@
         });
     }
 
+    let totalBudget = 400;
+
+    // Store for the used budget
+    let usedBudget = writable(0);
+
+    // Whenever selected players change, update the used budget
+    selectedPlayers.subscribe($selectedPlayers => {
+    let budgetUsed = $selectedPlayers.reduce((acc, player) => acc + player.points, 0);
+    usedBudget.set(budgetUsed);
+    });
+
 </script>
 
 <div class="header bg-red-700 text-white text-3xl text-center font-bold py-5">
@@ -36,28 +55,45 @@
     <div class="progress-bar" style="width: {($selectedPlayers.length * 100) / 4}%;"></div>
 </div>
 
+<!--Budget Div-->
+<div class="budget-container flex justify-center items-center text-2xl ">
+    <h2>
+      <!-- Show remaining budget on update-->
+        {totalBudget - $usedBudget}
+    </h2>
+</div>
+
 
 <div class="teams-container">
     <div class="team">
-        <h2>Team A</h2>
+        <h2>Lahore Qalandars</h2>
         {#each players.filter(p => p.team === 'Team A') as player (player.name)}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
-                <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
-                <div class="player-info">
-                    <h3>{player.name}</h3>
-                    <p>{player.points}</p>
+                <div class="flex flex-col items-center">
+                    <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
+                    <div class="player-info">
+                        <h3>{player.name}</h3>
+                        <p>{player.points}</p>
+                    </div>
                 </div>
             </div>
         {/each}
     </div>
     <div class="team">
-        <h2>Team B</h2>
+        <h2>Karachi Kings</h2>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         {#each players.filter(p => p.team === 'Team B') as player (player.name)}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="player-card {$selectedPlayers.some(p => p.name === player.name) ? 'selected' : ''}" on:click={() => togglePlayerSelection(player)}>
-                <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
-                <div class="player-info">
-                    <h3>{player.name}</h3>
-                    <p>{player.points}</p>
+                <div class="flex flex-col items-center">
+                    <img src={player.image} alt={`Image of ${player.name}`} class="player-image"/>
+                    <div class="player-info">
+                        <h3>{player.name}</h3>
+                        <p>{player.points}</p>
+                    </div>
                 </div>
             </div>
         {/each}
