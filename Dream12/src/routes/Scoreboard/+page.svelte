@@ -9,6 +9,12 @@
     import NewsFlag from '$lib/Imgs/Karachi.png'
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+
+    let gray1 = "bg-gray-900"
+    let gray2 = "bg-gray-800"
+    let white = "bg-white"
+    let gray3 = "bg-gray-400"
+    let gray4 = "bg-gray-700"
     
     // You can set your data here or fetch it from an API
 
@@ -253,9 +259,11 @@
           {/each}
         </tbody>
     </div>
+    <div class="flex justify-center my-10 outline-double">
+      <button class="text-white text-lg"><a href="/results">Next</a></button>
+    </div>
   </div>
 
-    <button class="text-white text-lg"><a href="/results">Next</a></button>
   </div>
   
   <style>

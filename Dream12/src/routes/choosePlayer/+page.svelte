@@ -73,7 +73,7 @@
 </div>
 
 <!--Budget Div-->
-<div class="budget-container flex justify-center items-center text-2xl mx-4 my-4">
+<div class="budget-container flex justify-center items-center text-2xl mx-4 my-4 outline">
     <h2>
       <!-- Show remaining budget on update-->
         {totalBudget - $usedBudget}
