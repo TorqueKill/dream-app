@@ -1,10 +1,16 @@
 <script>
     import { globalSelectedPlayers } from '$lib/store.js'
 
+    let gray1 = "bg-gray-900"
+    let gray2 = "bg-gray-800"
+    let white = "bg-white"
+    let gray3 = "bg-gray-400"
+    let gray4 = "bg-gray-700"
+
     let totalPool = 1400;
 
-    //let playerNames = [];
-    let playerNames = ["Fakhar Zaman", "Shaheen Shah Afridi", "Muhammad Hafeez", "Cris Lynn"]
+    let playerNames = [];
+    //let playerNames = ["Fakhar Zaman", "Shaheen Shah Afridi", "Muhammad Hafeez", "Cris Lynn"]
     let selectedPlayers = $globalSelectedPlayers;
     selectedPlayers.forEach(player => {
        playerNames.push(player.name)
@@ -33,36 +39,37 @@
 
 </script>
 
-
-<div class="header flex flex-col items-center">
-    <p class="text-3xl">Reward: PKR {reward}</p>
-    <p class="text-2xl">Points: {totalPoints}</p>
+<div class="body {gray1}">
+    <div class="header flex flex-col items-center text-white py-4">
+        <p class="text-3xl">Reward: PKR {reward}</p>
+        <p class="text-2xl">Points: {totalPoints}</p>
+    </div>
+    
+    
+    <div class="player-cards-container {gray2} text-white rounded-3xl py-2">
+        {#each playerPoints as player}
+            <div class="player-card {gray4} rounded-md" class:selected={playerNames.includes(player.name)}>
+                <p class="font-bold">{player.name}</p>
+                <p>Runs: {player.runs}</p>
+                <p>Boundaries: {player.boundaries}</p>
+                <p>Sixes: {player.sixes}</p>
+                <p>Wickets: {player.wickets}</p>
+                <p>Run Bonus: {player.runs >= 30 ? '+30' : 'No Bonus'}</p>
+            </div>
+        {/each}
+    </div>
 </div>
 
-<hr>
-
-<div class="player-cards-container">
-    {#each playerPoints as player}
-        <div class="player-card" class:selected={playerNames.includes(player.name)}>
-            <h3>{player.name}</h3>
-            <p>Runs: {player.runs}</p>
-            <p>Boundaries: {player.boundaries}</p>
-            <p>Sixes: {player.sixes}</p>
-            <p>Wickets: {player.wickets}</p>
-            <p>Run Bonus: {player.runs >= 30 ? '+30' : 'No Bonus'}</p>
-        </div>
-    {/each}
-</div>
 
 
 <style>
     .player-cards-container {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .player-card {
-        border: 1px solid #ccc;
         padding: 10px;
         margin: 10px;
         width: 200px;
@@ -70,10 +77,5 @@
     }
 
     .player-card.selected {
-        background-color: green;
-    }
-
-    .player-card h3 {
-        color: #333;
-    }
+    border: white dotted 1px;}
 </style>
