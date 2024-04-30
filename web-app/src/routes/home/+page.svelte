@@ -36,9 +36,9 @@
                 <div class="matchCard border-black border-2 rounded">
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
-                        <div class="team left text-center text-lg font-bold">Lahore Qalandars</div>
+                        <div class="team left text-center text-lg font-bold m-2">Lahore Qalandars</div>
                         <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
-                        <div class="team right text-center text-lg font-bold">Karachi Kings</div>
+                        <div class="team right text-center text-lg font-bold m-2">Karachi Kings</div>
                         
                     </div>
                     <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
