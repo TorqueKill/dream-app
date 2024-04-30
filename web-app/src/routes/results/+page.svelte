@@ -69,7 +69,7 @@
     </div>
     
     
-    <div class="player-cards-container {gray1} text-black rounded-tl-3xl rounded-tr-3xl py-2">
+    <div class=" {gray1} text-black rounded-tl-3xl rounded-tr-3xl py-2 grid grid-cols-2 gap-4">
         {#each playerPoints as player}
             <div class="player-card {gray4} rounded-2xl" class:selected={playerNames.includes(player.name)}>
                 <p class="font-bold">({player.points}) {player.name}</p>

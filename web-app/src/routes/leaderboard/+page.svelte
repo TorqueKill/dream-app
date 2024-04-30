@@ -1,6 +1,6 @@
 <script>
     import { onMount,onDestroy } from 'svelte';
-
+    let BASE_FARE = 100;
     let users = [];
     let interval;
     let TOTAL_POOL = 5000;
@@ -35,7 +35,7 @@
                 users.sort((a, b) => b.points - a.points);
                 users = [...users];
             }
-        }, 5000);
+        }, 2000);
 
         return () => clearInterval(interval);
     });
@@ -47,8 +47,12 @@
     }
 
     function distributeRewards() {
-
+        //set total pool based on people present in the game
+        TOTAL_POOL = users.length * BASE_FARE;
         let POOL = TOTAL_POOL * SHARE / 100;
+
+
+
         let totalTopThree = (POOL * scoreDistribution[0]) / 100;
         let totalRest = (POOL * scoreDistribution[1]) / 100;
 
@@ -78,7 +82,7 @@
 </script>
 <div>
 <div class="max-w-4xl mx-auto mt-10">
-    <h1 class="text-2xl font-bold text-center ">User Points Board</h1>
+    <h1 class="text-4xl font-bold text-center ">LEADERBOARD</h1>
     <div class="flex justify-center mt-4 space-x-10">
         <!--SHOW TOTAL POOL-->
         {#if !running}
@@ -124,7 +128,7 @@
 
 <style>
     .top3 {
-        background-color: rgb(236, 221, 135); /* Highlight top three with a gold background */
-        border: 2px solid darkgoldenrod;
+        background-color: rgb(255, 200, 200); /* Highlight top three with a gold background */
+        border: 4px solid rgb(230, 9, 9);
     }
 </style>
