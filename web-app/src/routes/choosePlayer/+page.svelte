@@ -14,39 +14,39 @@
     let selectedPlayers = writable([]);
 
     let players = [
-        { name: "Fakhar Zaman", points: 100, team: "Team A", image: Fakhar },
         { name: "Shaheen Shah Afridi", points: 100, team: "Team A", image: Shaheen },
-        { name: "Muhammad Hafeez", points: 100, team: "Team A", image: Hafeez },
-        { name: "Cris Lynn", points: 100, team: "Team A", image: Lynn },
-        { name: "Imad Wasim", points: 100, team: "Team B", image: Imad },
-        { name: "Muhammad Amir", points: 100, team: "Team B", image: Amir },
-        { name: "Sharjeel Khan", points: 100, team: "Team B", image: Sharjeel },
+        { name: "Fakhar Zaman", points: 50, team: "Team A", image: Fakhar },
+        { name: "Cris Lynn", points: 20, team: "Team A", image: Lynn },
+        { name: "Muhammad Hafeez", points: 10, team: "Team A", image: Hafeez },
+        
         { name: "Babar Azam", points: 100, team: "Team B", image: Babar },
+        { name: "Imad Wasim", points: 50, team: "Team B", image: Imad },
+        { name: "Sharjeel Khan", points: 20, team: "Team B", image: Sharjeel },
+        { name: "Muhammad Amir", points: 10, team: "Team B", image: Amir },
     ];
 
     function togglePlayerSelection(player) {
+        
         selectedPlayers.update(current => {
             const index = current.findIndex(p => p.name === player.name);
             if (index !== -1) {
+                totalBudget = totalBudget + player.points
                 return current.filter(p => p.name !== player.name); // Remove player if already selected
             } else if (current.filter(p => p.team === player.team).length < 2) {
-                return [...current, player]; // Add player if less than 2 from the same team
+                if (totalBudget - player.points >= 0) {
+                    totalBudget = totalBudget - player.points
+                    return [...current, player]; // Add player if less than 2 from the same team
+                } else {
+                    return current
+                }
+                
             }
             return current; // Return current state if no changes
         });
         $globalSelectedPlayers = selectedPlayers
     }
 
-    let totalBudget = 400;
-
-    // Store for the used budget
-    let usedBudget = writable(0);
-
-    // Whenever selected players change, update the used budget
-    selectedPlayers.subscribe($selectedPlayers => {
-        let budgetUsed = $selectedPlayers.reduce((acc, player) => acc + player.points, 0);
-        usedBudget.set(budgetUsed);
-    });
+    let totalBudget = 200;
 
     function next() {
         let currentSelectedPlayers = [];
@@ -79,7 +79,7 @@
         <div class="budget-container flex justify-center items-center text-2xl mx-4 my-4">
             <h2 class="font-bold">
               <!-- Show remaining budget on update-->
-                Credits: {totalBudget - $usedBudget}
+                Credits: {totalBudget}
             </h2>
         </div>
         
@@ -174,6 +174,7 @@
     border-radius: 10px;
     padding: 10px;
     margin: auto;
+    margin-bottom: 30px;
 }
 
 .team {

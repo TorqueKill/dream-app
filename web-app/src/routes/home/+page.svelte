@@ -10,9 +10,11 @@
 
 
 <div class="main w-full {red1}">
-    <div class="header {red1} text-white text-5xl text-center font-bold py-5">
-        DreamTeam
+    <div class="header {red1} text-white text-5xl text-center font-bold py-5 flex items-center justify-center">
+        <i class="material-icons" style="font-size: 45px;">emoji_events</i>
+        <span>DreamTeam</span>
     </div>
+    
 
     <div class="headerDrawer text-white rounded-tl-3xl rounded-tr-3xl">
         <nav class="navbar bg-stone-100">
