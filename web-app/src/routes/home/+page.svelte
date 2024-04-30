@@ -42,7 +42,7 @@
                         
                     </div>
                     <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
-                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
+
                 </div>  
             </div>
                       
@@ -54,35 +54,32 @@
                 <div class="matchCard border-black border-2 rounded opacity-50">
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
-                        <div class="team left text-center text-lg font-bold">Islamabad United</div>
+                        <div class="team left text-center text-lg font-bold m-2">Islamabad United</div>
                         <div class="time-remaining text-base text-red-700 font-bold">1d 4h</div>
-                        <div class="team right text-center text-lg font-bold">Multan Sultans</div>
+                        <div class="team right text-center text-lg font-bold m-2">Multan Sultans</div>
                         
                     </div>
                     <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
-                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
                 </div>  
                 <div class="matchCard border-black border-2 rounded opacity-50">
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
-                        <div class="team left text-center text-lg font-bold">Lahore Qalandars</div>
+                        <div class="team left text-center text-lg font-bold m-2">Lahore Qalandars</div>
                         <div class="time-remaining text-base text-red-700 font-bold">3d 5h</div>
-                        <div class="team right text-center text-lg font-bold">Peshawar Zalmi</div>
+                        <div class="team right text-center text-lg font-bold m-2">Peshawar Zalmi</div>
                         
                     </div>
                     <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
-                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
                 </div>  
                 <div class="matchCard border-black border-2 rounded opacity-50">
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
-                        <div class="team left text-center text-lg font-bold">Quetta Gladiators</div>
+                        <div class="team left text-center text-lg font-bold m-2">Quetta Gladiators</div>
                         <div class="time-remaining text-base text-red-700 font-bold">7d 12h</div>
-                        <div class="team right text-center text-lg font-bold">Karachi Kings</div>
+                        <div class="team right text-center text-lg font-bold m-2">Karachi Kings</div>
                         
                     </div>
                     <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
-                    <div class="prize {stone3} p-2  text-center text-sm text-white">Prize Pool: PKR 5000</div>
                 </div>  
 
 
