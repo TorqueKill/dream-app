@@ -49,7 +49,7 @@
     function distributeRewards() {
         //set total pool based on people present in the game
         TOTAL_POOL = users.length * BASE_FARE;
-        let POOL = TOTAL_POOL * SHARE / 100;
+        let POOL = TOTAL_POOL * (100-SHARE) / 100;
 
 
 
