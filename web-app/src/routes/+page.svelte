@@ -8,26 +8,11 @@
       $username = userInput
       goto('/home')
     }
-
-    onMount(async () => {
-      const resp = await fetch('api/fetchData', {
-                method: 'POST',
-                body: JSON.stringify({ 
-                }),
-      })
-
-      let respObj = await resp.json()
-      let data = respObj.data
-      console.log(data)
-
-    })
-
-
   </script>
   
   <style>
     .container {
-      height: 40vh;
+      height: 20vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
