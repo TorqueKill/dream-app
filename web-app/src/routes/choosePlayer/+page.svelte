@@ -76,11 +76,12 @@
         </div>
         
         <!--Budget Div-->
-        <div class="budget-container flex justify-center items-center text-2xl mx-4 my-4">
-            <h2 class="font-bold">
+        <div class="budget-container flex flex-col justify-center items-center  mx-4 my-4">
+            <h2 class="font-bold text-2xl">
               <!-- Show remaining budget on update-->
                 Credits: {totalBudget}
             </h2>
+            <div>Choose <b>2</b> players from each time</div>
         </div>
         
         
