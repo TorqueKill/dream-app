@@ -1,7 +1,7 @@
 <script>
     import { username } from '$lib/store.js'
     import { goto } from '$app/navigation';
-  
+    import { supabase } from '$lib/supabaseClient.js'
     let userInput = ""
     function handleClick() {
       $username = userInput
