@@ -69,7 +69,7 @@
                         <div class="team right text-center text-lg font-bold m-2">Peshawar Zalmi</div>
                         
                     </div>
-                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
+                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 100</div>
                 </div>  
                 <div class="matchCard border-black border-2 rounded opacity-50">
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
@@ -79,7 +79,7 @@
                         <div class="team right text-center text-lg font-bold m-2">Karachi Kings</div>
                         
                     </div>
-                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 50</div>
+                    <div class="prize bg-gray-500 p-2 mt-2 text-center text-sm text-white">Entry Fee: PKR 100</div>
                 </div>  
 
 
