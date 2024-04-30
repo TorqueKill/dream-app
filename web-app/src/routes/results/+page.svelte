@@ -2,8 +2,7 @@
     import { globalSelectedPlayers } from '$lib/store.js'
     import { username } from '$lib/store.js'
     import { onMount } from 'svelte';
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
+    
 
     let gray1 = "bg-white"
     let gray2 = "bg-red-700"
@@ -19,8 +18,6 @@
     let selectedPlayers = $globalSelectedPlayers;
 
     onMount(async () => {
-
-        const supabase = createClient('https://tvtxwckassjcuelfmbme.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2dHh3Y2thc3NqY3VlbGZtYm1lIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNDQ2NTExOCwiZXhwIjoyMDMwMDQxMTE4fQ.EuT57_1XdjRmuEb0dI1qnmoTRuyH9Proh5sUNYdP7zE')
 
         selectedPlayers.forEach(player => {
             playerNames.push(player.name)
@@ -40,14 +37,18 @@
         } else {
             return acc;
         }
-    }, 0);
+        }, 0);
 
-    reward = (totalPoints/200) * totalPool;
+        reward = (totalPoints/200) * totalPool;
 
-    const { error } = await supabase
-    .from('users')
-    .insert({ username: username, points: totalPoints })
-    })
+        const resp = await fetch('api/addData', {
+                method: 'POST',
+                body: JSON.stringify({ 
+                    username: $username,
+                    points: Number(totalPoints),
+                }),
+            })
+        })
 
     let playerPoints = [
         { name: "Fakhar Zaman", runs: 25, boundaries: 10, sixes: 1, wickets: 0 },
@@ -64,8 +65,7 @@
 
 <div class="body {gray2}">
     <div class="header flex flex-col items-center text-white py-4">
-        <p class="text-3xl">Reward: PKR {reward}</p>
-        <p class="text-2xl">Points: {totalPoints}</p>
+        <p class="text-3xl">Your Points: {totalPoints}</p>
     </div>
     
     
