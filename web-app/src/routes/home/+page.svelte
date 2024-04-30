@@ -55,7 +55,7 @@
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
                         <div class="team left text-center text-lg font-bold">Islamabad United</div>
-                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">1d 4h</div>
                         <div class="team right text-center text-lg font-bold">Multan Sultans</div>
                         
                     </div>
@@ -66,7 +66,7 @@
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
                         <div class="team left text-center text-lg font-bold">Lahore Qalandars</div>
-                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">3d 5h</div>
                         <div class="team right text-center text-lg font-bold">Peshawar Zalmi</div>
                         
                     </div>
@@ -77,7 +77,7 @@
                     <div class=" bg-red-500 w-full font-bold text-white">PSL</div>
                     <div class="teams flex">
                         <div class="team left text-center text-lg font-bold">Quetta Gladiators</div>
-                        <div class="time-remaining text-base text-red-700 font-bold">2h 34m</div>
+                        <div class="time-remaining text-base text-red-700 font-bold">7d 12h</div>
                         <div class="team right text-center text-lg font-bold">Karachi Kings</div>
                         
                     </div>

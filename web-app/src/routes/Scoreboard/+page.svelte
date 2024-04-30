@@ -265,7 +265,7 @@
           {/each}
         </tbody>
     </div>
-    <div class="next-button flex justify-center my-5 outline-double p-2 rounded" on:click={()=>{goto('/results')}}>
+    <div class="next-button flex justify-center my-5 p-2 rounded bg-red-700 text-white" on:click={()=>{goto('/results')}}>
       <button class=" text-lg">Next</button>
     </div>
   </div>
