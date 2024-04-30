@@ -74,7 +74,7 @@
             <div class="player-card {gray4} rounded-2xl" class:selected={playerNames.includes(player.name)}>
                 <p class="font-bold">({player.points}) {player.name}</p>
                 <p>Runs: {player.runs}</p>
-                <p>Boundaries: {player.boundaries}</p>
+                <p>Balls: {player.boundaries}</p>
                 <p>Sixes: {player.sixes}</p>
                 <p>Wickets: {player.wickets}</p>
                 <p>Run Bonus: {player.runs >= 30 ? '+30' : '0'}</p>
