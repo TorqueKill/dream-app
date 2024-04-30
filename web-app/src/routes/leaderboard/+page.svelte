@@ -1,6 +1,6 @@
 <script>
     import { onMount,onDestroy } from 'svelte';
-
+    let BASE_FARE = 50;
     let users = [];
     let interval;
     let TOTAL_POOL = 5000;
@@ -47,7 +47,8 @@
     }
 
     function distributeRewards() {
-
+        //set total pool based on people present in the game
+        TOTAL_POOL = users.length * BASE_FARE;
         let POOL = TOTAL_POOL * SHARE / 100;
         let totalTopThree = (POOL * scoreDistribution[0]) / 100;
         let totalRest = (POOL * scoreDistribution[1]) / 100;
